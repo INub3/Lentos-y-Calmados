@@ -177,12 +177,6 @@ setInterval(() => {
   cl.style.transform = `translate(${x}px, ${y}px)`;
 }, 4000);
 
-// ---------- Pop-up molesto ----------
-setTimeout(() => {
-  $('popup-num').textContent = Math.floor(Math.random() * 999999);
-  $('anti-popup').classList.remove('hidden');
-}, 3500);
-$('popup-close').addEventListener('click', () => $('anti-popup').classList.add('hidden'));
 
 // ---------- Init ----------
 renderCars();

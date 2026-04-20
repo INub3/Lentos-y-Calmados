@@ -248,29 +248,6 @@ body {
 .submit-btn { order: 13; background: hsl(120, 100%, 35%); color: hsl(60, 100%, 90%); text-align: center; }
 .close-btn-2 { order: 14; text-align: center; }
 
-/* Pop-up */
-.anti-popup {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 100;
-}
-.anti-popup-box {
-  background: hsl(60, 100%, 60%);
-  padding: 30px;
-  border: 6px dashed hsl(300, 100%, 50%);
-  text-align: center;
-  position: relative;
-  animation: shake 0.5s ease-in-out infinite;
-}
-.popup-title { font-size: 28px; color: hsl(0, 100%, 50%); }
-.popup-prize { font-size: 20px; color: hsl(120, 100%, 30%); }
-.popup-small { font-size: 11px; color: hsl(240, 100%, 30%); }
-.popup-close {
-  position: absolute; top: 5px; right: 8px;
-  font-size: 10px; color: hsl(60, 100%, 55%);
-  cursor: pointer;
-}
 
 /* Compra completa */
 .complete-box {
