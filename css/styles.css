@@ -1,0 +1,286 @@
+/* ============================================
+   LENTOS Y CALMADOS - Hoja de estilos anti-UX
+   Intencionalmente horrible. No copiar en prod.
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='28' font-size='28'%3E🚗%3C/text%3E%3C/svg%3E") 16 16, auto;
+}
+
+body {
+  margin: 0;
+  min-width: 1400px;
+  overflow-x: scroll;
+  background: hsl(60, 100%, 50%);
+  color: hsl(120, 100%, 25%);
+  font-family: 'Comic Neue', cursive;
+}
+
+.hidden { display: none !important; }
+
+/* ----------- Tipografías ----------- */
+.font-comic     { font-family: 'Comic Neue', cursive; }
+.font-paprika   { font-family: 'Paprika', cursive; }
+.font-bungee    { font-family: 'Bungee Shade', cursive; }
+.font-creepster { font-family: 'Creepster', cursive; }
+
+/* ----------- Animaciones ----------- */
+@keyframes rainbow {
+  0%   { background-color: hsl(0, 100%, 50%); }
+  16%  { background-color: hsl(60, 100%, 50%); }
+  33%  { background-color: hsl(120, 100%, 50%); }
+  50%  { background-color: hsl(180, 100%, 50%); }
+  66%  { background-color: hsl(240, 100%, 50%); }
+  83%  { background-color: hsl(300, 100%, 50%); }
+  100% { background-color: hsl(360, 100%, 50%); }
+}
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-10px) rotate(-5deg); }
+  75% { transform: translateX(10px) rotate(5deg); }
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+@keyframes bounce-crazy {
+  0%,100% { transform: translateY(0) scale(1); }
+  25% { transform: translateY(-30px) scale(1.2) rotate(10deg); }
+  50% { transform: translateY(0) scale(0.8); }
+  75% { transform: translateY(-15px) scale(1.1) rotate(-10deg); }
+}
+
+.rainbow-bg   { animation: rainbow 2s linear infinite; }
+.spin-slow    { animation: spin-slow 8s linear infinite; display: inline-block; }
+.shake        { animation: shake 0.3s ease-in-out infinite; display: inline-block; }
+.blink        { animation: blink 0.5s step-end infinite; }
+.bounce-crazy { animation: bounce-crazy 1s ease-in-out infinite; display: inline-block; }
+
+.upside-down { transform: rotate(180deg); display: inline-block; }
+
+.text-shadow-chaos {
+  text-shadow: 3px 3px 0 red, -3px -3px 0 blue, 3px -3px 0 green, -3px 3px 0 yellow;
+}
+
+.horrible-border {
+  border: 5px dashed hsl(300, 100%, 50%);
+  outline: 3px dotted hsl(120, 100%, 50%);
+  outline-offset: 4px;
+}
+
+/* ----------- Header ----------- */
+.rainbow-header {
+  animation: rainbow 2s linear infinite;
+  padding: 16px;
+  text-align: center;
+}
+.main-title  { font-size: 60px; margin: 0; }
+.subtitle    { font-size: 20px; margin-top: 8px; color: hsl(300, 100%, 30%); }
+.visit-count { font-size: 12px; color: hsl(0, 100%, 30%); }
+
+/* ----------- Marquee ----------- */
+.marquee-bar {
+  background: hsl(0, 0%, 0%);
+  color: hsl(60, 100%, 50%);
+  overflow: hidden;
+  padding: 8px 0;
+}
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 22px;
+  animation: marquee 8s linear infinite;
+}
+
+/* ----------- Nav confusa ----------- */
+.confuse-nav {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: hsl(180, 100%, 40%);
+}
+.nav-inicio  { font-size: 18px; color: hsl(180, 80%, 38%); }
+.nav-help    { font-size: 11px; color: hsl(60, 100%, 50%); }
+.nav-q       { font-size: 24px; color: hsl(0, 100%, 50%); }
+.nav-cart    { font-size: 11px; color: hsl(180, 70%, 35%); cursor: pointer; text-decoration: line-through; transition: transform 1s; }
+.nav-contact { font-size: 14px; color: hsl(300, 100%, 50%); }
+.nav-spin    { font-size: 18px; color: hsl(120, 100%, 30%); }
+
+/* ----------- Banner ----------- */
+.annoying-banner {
+  padding: 12px;
+  text-align: center;
+  background: hsl(300, 100%, 80%);
+}
+.banner-text { font-size: 24px; color: hsl(60, 100%, 50%); margin: 0; }
+
+/* ----------- Sección autos ----------- */
+.cars-section { padding: 24px; background: hsl(60, 100%, 50%); }
+.cars-title {
+  font-size: 28px;
+  text-align: center;
+  margin: 0 0 24px;
+  color: hsl(60, 80%, 45%);
+  letter-spacing: 15px;
+}
+.cars-row {
+  display: flex;
+  gap: 40px;
+  overflow-x: scroll;
+  padding-bottom: 30px;
+}
+
+/* ----------- Tarjeta auto ----------- */
+.car-card {
+  flex: 0 0 320px;
+  background: hsl(300, 100%, 80%);
+  padding: 16px;
+  border: 5px dashed hsl(120, 100%, 50%);
+  outline: 3px dotted hsl(0, 100%, 50%);
+  outline-offset: 4px;
+  transform: rotate(-2deg);
+}
+.car-card:nth-child(even) { transform: rotate(2deg); background: hsl(180, 100%, 75%); }
+.car-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  filter: blur(0.5px) saturate(1.4);
+  transform: scaleX(-1);
+}
+.car-card h3 {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 22px;
+  margin: 8px 0;
+  color: hsl(280, 100%, 35%);
+}
+.car-card .price {
+  font-family: 'Creepster', cursive;
+  font-size: 28px;
+  color: hsl(120, 100%, 25%);
+}
+.car-card .small {
+  font-family: 'Paprika', cursive;
+  font-size: 11px;
+  color: hsl(0, 80%, 30%);
+}
+.car-card .desc {
+  font-family: 'Comic Neue', cursive;
+  font-size: 12px;
+  color: hsl(240, 80%, 25%);
+}
+.fake-button {
+  display: inline-block;
+  padding: 8px 14px;
+  margin: 6px 4px 0;
+  border: 3px dotted hsl(0, 100%, 50%);
+  cursor: pointer;
+  user-select: none;
+  font-size: 13px;
+  background: hsl(60, 100%, 60%);
+  color: hsl(0, 100%, 30%);
+  transition: transform 0.4s;
+}
+.fake-button:hover { transform: rotate(4deg) scale(0.9); }
+
+/* ----------- Footer ----------- */
+.footer {
+  padding: 32px;
+  text-align: center;
+  background: hsl(0, 100%, 40%);
+}
+.footer-copy { font-size: 16px; color: hsl(0, 80%, 38%); margin: 0; }
+.footer-text { font-size: 13px; color: hsl(60, 100%, 50%); }
+.footer-warn { font-size: 11px; color: hsl(0, 60%, 35%); }
+
+/* ----------- Modales ----------- */
+.modal {
+  position: fixed; inset: 0;
+  background: rgba(255, 0, 255, 0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 50;
+  padding: 20px;
+}
+.modal-box {
+  background: hsl(60, 100%, 60%);
+  padding: 24px;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow: auto;
+}
+.modal-box img {
+  width: 100%; max-height: 250px; object-fit: cover;
+  animation: spin-slow 10s linear infinite;
+}
+.modal-box h2 { margin: 8px 0; font-size: 26px; color: hsl(280, 100%, 35%); }
+
+/* Carrito */
+.cart-box { width: 500px; }
+.cart-title { font-size: 32px; color: hsl(0, 100%, 40%); }
+.cart-item {
+  display: flex; justify-content: space-between;
+  padding: 8px; margin: 6px 0;
+  background: hsl(180, 100%, 80%);
+  font-family: 'Paprika', cursive;
+}
+.cart-item .rm { color: hsl(0, 100%, 30%); cursor: pointer; }
+.cart-total { font-size: 22px; color: hsl(120, 100%, 25%); text-align: right; }
+.checkout-btn { background: hsl(120, 100%, 40%); color: hsl(60, 100%, 90%); }
+.close-btn, .close-btn-2 { background: hsl(0, 100%, 70%); }
+
+/* Checkout */
+.checkout-box { width: 600px; }
+.checkout-title { font-size: 30px; text-align: center; color: hsl(300, 100%, 40%); }
+.checkout-form { display: grid; gap: 4px; }
+.checkout-form label { font-size: 13px; color: hsl(280, 100%, 30%); }
+.checkout-form input, .checkout-form textarea {
+  padding: 8px; border: 2px dashed hsl(120, 100%, 40%);
+  background: hsl(60, 100%, 80%); font-family: inherit;
+}
+.lbl-1 { order: 5; } .input-1 { order: 6; }
+.lbl-2 { order: 1; } .input-2 { order: 2; }
+.lbl-3 { order: 9; } .input-3 { order: 10; }
+.lbl-4 { order: 3; } .input-4 { order: 4; }
+.lbl-5 { order: 7; } .input-5 { order: 8; }
+.lbl-6 { order: 11; } .input-6 { order: 12; }
+.submit-btn { order: 13; background: hsl(120, 100%, 35%); color: hsl(60, 100%, 90%); text-align: center; }
+.close-btn-2 { order: 14; text-align: center; }
+
+/* Pop-up */
+.anti-popup {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+}
+.anti-popup-box {
+  background: hsl(60, 100%, 60%);
+  padding: 30px;
+  border: 6px dashed hsl(300, 100%, 50%);
+  text-align: center;
+  position: relative;
+  animation: shake 0.5s ease-in-out infinite;
+}
+.popup-title { font-size: 28px; color: hsl(0, 100%, 50%); }
+.popup-prize { font-size: 20px; color: hsl(120, 100%, 30%); }
+.popup-small { font-size: 11px; color: hsl(240, 100%, 30%); }
+.popup-close {
+  position: absolute; top: 5px; right: 8px;
+  font-size: 10px; color: hsl(60, 100%, 55%);
+  cursor: pointer;
+}
+
+/* Compra completa */
+.complete-box {
+  background: hsl(60, 100%, 50%);
+  padding: 48px;
+  text-align: center;
+  transform: rotate(5deg);
+}
+.complete-title { font-size: 56px; color: hsl(120, 100%, 30%); margin: 0; }
+.complete-text  { font-size: 22px; color: hsl(300, 100%, 40%); }
+.complete-mail  { font-size: 16px; color: hsl(0, 100%, 40%); }
+.complete-note  { font-size: 12px; color: hsl(240, 100%, 30%); }
+.reset-btn      { background: hsl(180, 100%, 40%); color: hsl(180, 80%, 38%); margin-top: 20px; }

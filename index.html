@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lentos y Calmados</title>
+  <meta name="description" content="Proyecto creado sin cumplir con los objetivos de usabilidad" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Paprika&family=Bungee+Shade&family=Creepster&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Pop-up anti-UX -->
+  <div id="anti-popup" class="anti-popup hidden">
+    <div class="anti-popup-box">
+      <p class="font-creepster popup-title">⚠️ ¡FELICIDADES! ⚠️</p>
+      <p class="font-comic">Eres el visitante #<span id="popup-num">999999</span></p>
+      <p class="font-paprika popup-prize">¡Has ganado un auto LENTO!</p>
+      <p class="font-comic popup-small">(Cierra este popup buscando el botón... si puedes)</p>
+      <span id="popup-close" class="popup-close">x</span>
+    </div>
+  </div>
+
+  <!-- Header arcoíris -->
+  <header class="rainbow-header">
+    <h1 class="font-bungee text-shadow-chaos main-title">🐌 LENTOS Y CALMADOS 🐢</h1>
+    <p class="font-paprika subtitle">"Si funciona, fue accidental" - Fundado en algún momento</p>
+    <p class="font-comic blink visit-count">Visita #<span id="visit-count">1</span> - ¿Por qué sigues volviendo?</p>
+  </header>
+
+  <!-- Marquee -->
+  <div class="marquee-bar">
+    <div class="marquee-track font-creepster">
+      ★ OFERTA IMPERDIBLE ★ COMPRA YA ★ AUTOS LENTOS PERO SEGUROS (TAL VEZ) ★ NO HAY DEVOLUCIONES ★ PRECIOS NEGOCIABLES PERO NO ★ ENVÍO EN 6-847 DÍAS ★
+    </div>
+  </div>
+
+  <!-- Navegación confusa -->
+  <nav class="confuse-nav">
+    <span class="font-creepster nav-inicio">Inicio</span>
+    <span class="font-comic upside-down nav-help">¿Ayuda?</span>
+    <span class="font-paprika nav-q">???</span>
+    <span id="cart-link" class="font-comic nav-cart">carrito (<span id="cart-count">0</span>) (dame click si puedes)</span>
+    <span class="font-bungee nav-contact">Contacto (no funciona)</span>
+    <span class="font-creepster spin-slow nav-spin">🔄</span>
+  </nav>
+
+  <!-- Banner molesto -->
+  <div class="annoying-banner horrible-border">
+    <p class="font-creepster blink banner-text">⚡ SUPER MEGA ULTRA OFERTA: ¡15% DE DESCUENTO SI COMPRAS DURANTE UN ECLIPSE SOLAR! ⚡</p>
+  </div>
+
+  <!-- Listado autos scroll horizontal -->
+  <section class="cars-section">
+    <h2 class="font-paprika cars-title">N U E S T R O S &nbsp; A U T O S &nbsp; (scroll horizontal →→→)</h2>
+    <div id="cars-list" class="cars-row"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer horrible-border">
+    <p class="font-bungee footer-copy">© 2026 Lentos y Calmados™</p>
+    <p class="font-comic footer-text">Política de privacidad: No tenemos. Términos y condiciones: Tampoco. Garantía: Jajaja.</p>
+    <p class="font-paprika blink footer-warn">Si experimentas frustración, ira o confusión al usar este sitio... funciona correctamente ✅</p>
+  </footer>
+
+  <!-- Modal detalle -->
+  <div id="detail-modal" class="modal hidden">
+    <div class="modal-box horrible-border" id="detail-content"></div>
+  </div>
+
+  <!-- Modal carrito -->
+  <div id="cart-modal" class="modal hidden">
+    <div class="modal-box horrible-border cart-box">
+      <h2 class="font-creepster cart-title">🛒 TU CARRITO 🛒</h2>
+      <div id="cart-items"></div>
+      <p class="font-bungee cart-total">TOTAL: $<span id="cart-total">0</span></p>
+      <span id="cart-checkout" class="fake-button checkout-btn font-paprika">PROCEDER AL PAGO (?)</span>
+      <span id="cart-close" class="fake-button close-btn font-comic">cerrar (tal vez)</span>
+    </div>
+  </div>
+
+  <!-- Modal checkout -->
+  <div id="checkout-modal" class="modal hidden">
+    <div class="modal-box horrible-border checkout-box">
+      <h2 class="font-bungee checkout-title">F🔥RMULARI🔥 DE PAG🔥</h2>
+      <form id="checkout-form" class="checkout-form">
+        <label class="font-creepster lbl-1">Tipo de sangre:</label>
+        <input class="input-1" type="text" required />
+        <label class="font-paprika lbl-2">nombre (opcional)</label>
+        <input class="input-2" type="text" />
+        <label class="font-comic lbl-3">¿Cuál es tu mayor miedo?</label>
+        <textarea class="input-3" required></textarea>
+        <label class="font-bungee lbl-4">TARJETA</label>
+        <input class="input-4" type="text" placeholder="0000-0000-0000-0000" required />
+        <label class="font-creepster lbl-5">color favorito de tu abuela</label>
+        <input class="input-5" type="text" required />
+        <label class="font-paprika lbl-6">dirección (escríbela al revés)</label>
+        <input class="input-6" type="text" required />
+        <span id="submit-btn" class="fake-button submit-btn font-bungee">PAGAR</span>
+        <span id="checkout-close" class="fake-button close-btn-2 font-comic">x cerrar</span>
+      </form>
+    </div>
+  </div>
+
+  <!-- Pantalla de compra completa -->
+  <div id="complete-modal" class="modal hidden rainbow-bg">
+    <div class="complete-box horrible-border">
+      <h1 class="font-bungee text-shadow-chaos bounce-crazy complete-title">¡¿COMPRA EXITOSA?!</h1>
+      <p class="font-creepster complete-text">🎉 Tu auto llegará en 6 a 847 días hábiles 🎉</p>
+      <p class="font-comic complete-mail">Recibirás un correo de confirmación... o tal vez no.</p>
+      <p class="font-paprika blink complete-note">NOTA: No aceptamos devoluciones, quejas, miradas feas, ni suspiros de decepción.</p>
+      <span id="reset-btn" class="fake-button reset-btn shake font-bungee">🔄 VOLVER A SUFRIR</span>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
