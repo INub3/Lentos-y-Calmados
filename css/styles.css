@@ -12,8 +12,8 @@ body {
   margin: 0;
   min-width: 1400px;
   overflow-x: scroll;
-  background: hsl(60, 100%, 50%);
-  color: hsl(120, 100%, 25%);
+  background: hsl(0, 0%, 95%);
+  color: hsl(0, 0%, 20%);
   font-family: 'Comic Neue', cursive;
 }
 
@@ -74,9 +74,9 @@ body {
   padding: 16px;
   text-align: center;
 }
-.main-title  { font-size: 60px; margin: 0; }
-.subtitle    { font-size: 20px; margin-top: 8px; color: hsl(300, 100%, 30%); }
-.visit-count { font-size: 12px; color: hsl(0, 100%, 30%); }
+.main-title  { font-size: 60px; margin: 0; color: hsl(0, 0%, 20%); }
+.subtitle    { font-size: 20px; margin-top: 8px; color: hsl(0, 0%, 40%); }
+.visit-count { font-size: 12px; color: hsl(0, 0%, 30%); }
 
 /* ----------- Marquee ----------- */
 .marquee-bar {
@@ -99,30 +99,30 @@ body {
   padding: 12px;
   flex-wrap: wrap;
   justify-content: space-around;
-  background: hsl(180, 100%, 40%);
+  background: hsl(200, 70%, 45%);
 }
-.nav-inicio  { font-size: 18px; color: hsl(180, 80%, 38%); }
-.nav-help    { font-size: 11px; color: hsl(60, 100%, 50%); }
-.nav-q       { font-size: 24px; color: hsl(0, 100%, 50%); }
-.nav-cart    { font-size: 11px; color: hsl(180, 70%, 35%); cursor: pointer; text-decoration: line-through; transition: transform 1s; }
-.nav-contact { font-size: 14px; color: hsl(300, 100%, 50%); }
-.nav-spin    { font-size: 18px; color: hsl(120, 100%, 30%); }
+.nav-inicio  { font-size: 18px; color: hsl(0, 0%, 95%); }
+.nav-help    { font-size: 11px; color: hsl(0, 0%, 95%); }
+.nav-q       { font-size: 24px; color: hsl(0, 90%, 50%); }
+.nav-cart    { font-size: 11px; color: hsl(0, 0%, 95%); cursor: pointer; text-decoration: line-through; transition: transform 1s; }
+.nav-contact { font-size: 14px; color: hsl(0, 0%, 95%); }
+.nav-spin    { font-size: 18px; color: hsl(0, 0%, 95%); }
 
 /* ----------- Banner ----------- */
 .annoying-banner {
   padding: 12px;
   text-align: center;
-  background: hsl(300, 100%, 80%);
+  background: hsl(45, 90%, 60%);
 }
-.banner-text { font-size: 24px; color: hsl(60, 100%, 50%); margin: 0; }
+.banner-text { font-size: 24px; color: hsl(0, 0%, 25%); margin: 0; }
 
 /* ----------- Sección autos ----------- */
-.cars-section { padding: 24px; background: hsl(60, 100%, 50%); }
+.cars-section { padding: 24px; background: hsl(0, 0%, 95%); }
 .cars-title {
   font-size: 28px;
   text-align: center;
   margin: 0 0 24px;
-  color: hsl(60, 80%, 45%);
+  color: hsl(0, 0%, 25%);
   letter-spacing: 15px;
 }
 .cars-row {
@@ -135,14 +135,14 @@ body {
 /* ----------- Tarjeta auto ----------- */
 .car-card {
   flex: 0 0 320px;
-  background: hsl(300, 100%, 80%);
+  background: hsl(0, 0%, 98%);
   padding: 16px;
-  border: 5px dashed hsl(120, 100%, 50%);
-  outline: 3px dotted hsl(0, 100%, 50%);
+  border: 5px dashed hsl(200, 60%, 50%);
+  outline: 3px dotted hsl(0, 80%, 50%);
   outline-offset: 4px;
   transform: rotate(-2deg);
 }
-.car-card:nth-child(even) { transform: rotate(2deg); background: hsl(180, 100%, 75%); }
+.car-card:nth-child(even) { transform: rotate(2deg); background: hsl(0, 0%, 96%); }
 .car-card img {
   width: 100%;
   height: 180px;
@@ -154,33 +154,33 @@ body {
   font-family: 'Bungee Shade', cursive;
   font-size: 22px;
   margin: 8px 0;
-  color: hsl(280, 100%, 35%);
+  color: hsl(200, 80%, 35%);
 }
 .car-card .price {
   font-family: 'Creepster', cursive;
   font-size: 28px;
-  color: hsl(120, 100%, 25%);
+  color: hsl(120, 70%, 30%);
 }
 .car-card .small {
   font-family: 'Paprika', cursive;
   font-size: 11px;
-  color: hsl(0, 80%, 30%);
+  color: hsl(0, 0%, 40%);
 }
 .car-card .desc {
   font-family: 'Comic Neue', cursive;
   font-size: 12px;
-  color: hsl(240, 80%, 25%);
+  color: hsl(0, 0%, 35%);
 }
 .fake-button {
   display: inline-block;
   padding: 8px 14px;
   margin: 6px 4px 0;
-  border: 3px dotted hsl(0, 100%, 50%);
+  border: 3px dotted hsl(200, 70%, 40%);
   cursor: pointer;
   user-select: none;
   font-size: 13px;
-  background: hsl(60, 100%, 60%);
-  color: hsl(0, 100%, 30%);
+  background: hsl(200, 70%, 50%);
+  color: hsl(0, 0%, 95%);
   transition: transform 0.4s;
 }
 .fake-button:hover { transform: rotate(4deg) scale(0.9); }
@@ -189,11 +189,11 @@ body {
 .footer {
   padding: 32px;
   text-align: center;
-  background: hsl(0, 100%, 40%);
+  background: hsl(200, 70%, 45%);
 }
-.footer-copy { font-size: 16px; color: hsl(0, 80%, 38%); margin: 0; }
-.footer-text { font-size: 13px; color: hsl(60, 100%, 50%); }
-.footer-warn { font-size: 11px; color: hsl(0, 60%, 35%); }
+.footer-copy { font-size: 16px; color: hsl(0, 0%, 95%); margin: 0; }
+.footer-text { font-size: 13px; color: hsl(0, 0%, 95%); }
+.footer-warn { font-size: 11px; color: hsl(0, 0%, 95%); }
 
 /* ----------- Modales ----------- */
 .modal {
