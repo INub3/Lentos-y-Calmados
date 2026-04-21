@@ -205,16 +205,8 @@ body {
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.btn-add {
-  
-  background: hsl(200, 70%, 50%);
-}
-
-.btn-add:hover {
-  background: hsl(200, 70%, 50%);
-}
-
-/* Hover funcional y agradable */
+.btn-add { background: hsl(200, 70%, 50%); }
+.btn-add:hover { background: hsl(200, 70%, 50%); }
 .fake-button:hover { 
   background: hsl(200, 70%, 40%);
   transform: translateY(-2px); 
@@ -231,11 +223,10 @@ body {
 .footer-warn { font-size: 11px; color: hsl(0, 0%, 95%); }
 
 /* ----------- Modales ----------- */
-/* ----------- Modales (UX Corregido) ----------- */
 .modal {
   position: fixed; 
   inset: 0;
-  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro elegante en lugar del magenta */
+  background: rgba(0, 0, 0, 0.6); 
   display: flex; 
   align-items: center; 
   justify-content: center;
@@ -244,17 +235,17 @@ body {
 }
 
 .modal-box {
-  background: hsl(0, 0%, 100%); /* Fondo blanco limpio */
+  background: hsl(0, 0%, 100%); 
   padding: 30px;
-  border-radius: 8px; /* Bordes suaves */
+  border-radius: 8px; 
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
   overflow: auto;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra de profundidad */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Espaciado ordenado */
+  gap: 15px; 
 }
 
 .modal-box img {
@@ -271,8 +262,28 @@ body {
   color: hsl(200, 80%, 30%); 
 }
 
+/* NUEVO Deshacer */
+.undo-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #222;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
 
-
+.undo-link {
+  color: #00ffcc;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
 
 /* Carrito */
 .cart-box { width: 500px; }
@@ -291,21 +302,50 @@ body {
 /* Checkout */
 .checkout-box { width: 600px; }
 .checkout-title { font-size: 30px; text-align: center; color: hsl(300, 100%, 40%); }
-.checkout-form { display: grid; gap: 4px; }
-.checkout-form label { font-size: 13px; color: hsl(280, 100%, 30%); }
+
+/* NUEVO */
+.checkout-form { display: flex; flex-direction: column; text-align: left; }
+.checkout-form label { margin-top: 10px; }
 .checkout-form input, .checkout-form textarea {
   padding: 8px; border: 2px dashed hsl(120, 100%, 40%);
   background: hsl(60, 100%, 80%); font-family: inherit;
 }
-.lbl-1 { order: 5; } .input-1 { order: 6; }
+
+/* ANTERIOR  */
+/* .lbl-1 { order: 5; } .input-1 { order: 6; }
 .lbl-2 { order: 1; } .input-2 { order: 2; }
 .lbl-3 { order: 9; } .input-3 { order: 10; }
 .lbl-4 { order: 3; } .input-4 { order: 4; }
 .lbl-5 { order: 7; } .input-5 { order: 8; }
 .lbl-6 { order: 11; } .input-6 { order: 12; }
 .submit-btn { order: 13; background: hsl(120, 100%, 35%); color: hsl(60, 100%, 90%); text-align: center; }
-.close-btn-2 { order: 14; text-align: center; }
+.close-btn-2 { order: 14; text-align: center; } 
+*/
 
+/* NUEVO */
+.lbl-1, .input-1, .lbl-2, .input-2, .lbl-3, .input-3, 
+.lbl-4, .input-4, .lbl-5, .input-5, .lbl-6, .input-6 {
+  order: initial !important; 
+}
+
+/* [NUEVO] Feedback visual de errores */
+.input-error {
+  border: 3px solid red !important;
+  background: #ffdada !important;
+  animation: shake 0.2s ease-in-out 2;
+}
+input:required {
+  border-left: 5px solid red !important;
+}
+input:valid {
+  border-left: 5px solid green !important;
+}
+
+/* NUEVO */
+.confirmation-box { text-align: center; background: white; }
+.confirm-actions { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+.btn-confirm { background: #28a745 !important; color: white; }
+.btn-cancel { background: #dc3545 !important; color: white; }
 
 /* Compra completa */
 .complete-box {
