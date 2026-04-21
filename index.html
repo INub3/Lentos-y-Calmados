@@ -61,8 +61,7 @@
     <p class="font-paprika footer-warn">Si experimentas frustración, ira o confusión al usar este sitio... funciona correctamente ✅</p>
   </footer>
 
-  <!-- Modal detalle -->
- <div id="detail-modal" class="modal hidden">
+  <div id="detail-modal" class="modal hidden">
     <div class="modal-box" id="detail-content"></div>
   </div>
 
@@ -108,6 +107,22 @@
       <p class="complete-mail">Hemos enviado un correo con el comprobante y los detalles de entrega a tu dirección registrada.</p>
       <div class="complete-actions">
         <span id="reset-btn" class="fake-button">Volver al catálogo</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="undo-toast" class="undo-toast hidden">
+    <p>¿Te arrepentiste? El auto fue eliminado.</p>
+    <span id="undo-btn" class="undo-link">DESHACER</span>
+  </div>
+
+  <div id="confirm-modal" class="modal hidden">
+    <div class="modal-box confirmation-box horrible-border">
+      <h2 class="font-bungee">¿ESTÁS SEGURO?</h2>
+      <p class="font-comic">Vas a gastar dinero real en algo que probablemente no tiene frenos.</p>
+      <div class="confirm-actions">
+        <span id="confirm-yes" class="fake-button btn-confirm">SÍ, PAGAR</span>
+        <span id="confirm-no" class="fake-button btn-cancel">NO, VOLVER</span>
       </div>
     </div>
   </div>
