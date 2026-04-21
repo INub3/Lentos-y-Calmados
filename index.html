@@ -6,39 +6,70 @@
   <title>Lentos y Calmados</title>
   <meta name="description" content="Proyecto creado sin cumplir con los objetivos de usabilidad" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Paprika&family=Bungee+Shade&family=Creepster&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Header arcoíris -->
   <header class="rainbow-header">
-    <h1 class="font-bungee text-shadow-chaos main-title">🐌 LENTOS Y CALMADOS 🐢</h1>
-    <p class="font-paprika subtitle">"Si funciona, fue accidental" - Fundado en algún momento</p>
-    <p class="font-comic visit-count">Visita #<span id="visit-count">1</span> - ¿Por qué sigues volviendo?</p>
+    <div class="header-inner">
+      <h1 class="main-title"> Lentos <span class="main-title-accent">&</span> Calmados </h1>
+
+     <div class="header-actions">
+      <button onclick="location.href='#catalogo'" class="icon-btn" aria-label="Buscar">&#128269;</button>
+      <button id="cart-link" aria-label="Carrito" class="cart-btn">
+        &#128722; (<span id="cart-count">0</span>)
+      </button>
+    </div>
+  
+  </div>
   </header>
 
+  <!-- Banner promocional -->
+  <div class="promo-banner">
+    <span class="promo-badge">-10%</span>
+    <span class="promo-text">Descuento en financiamiento — válido hasta el 30 de abril</span>
+  </div>
+
+  <!-- Fondo -->
+  <section class="fondo">
+    <img 
+      src="images/home.jpg" 
+      alt="Agencia Lentos y Calmados" 
+      class="fondo-img"
+    />
+    <div class="fondo-overlay">
+      <p class="fondo-label">Bienvenido a</p>
+      <h2 class="fondo-title">Lentos <span class="logo-accent">&</span> Calmados</h2>
+      <p class="fondo-sub">Autos seleccionados · Financiamiento disponible</p>
+      <a href="#catalogo" class="fondo-btn">Ver catálogo</a>
+    </div>
+  </section>
+
+  <!-- CODIGO ANTIGUO -->
+
   <!-- Marquee -->
-  <div class="marquee-bar">
+  <!-- <div class="marquee-bar">
     <div class="marquee-track font-creepster">
       ★ OFERTA IMPERDIBLE ★ COMPRA YA ★ AUTOS LENTOS PERO SEGUROS (TAL VEZ) ★ NO HAY DEVOLUCIONES ★ PRECIOS NEGOCIABLES PERO NO ★ ENVÍO EN 6-847 DÍAS ★
     </div>
-  </div>
+  </div> -->
 
   <!-- Navegación confusa -->
-  <nav class="confuse-nav">
+  <!-- <nav class="confuse-nav">
     <span class="font-creepster nav-inicio">Inicio</span>
     <span class="font-comic upside-down nav-help">¿Ayuda?</span>
     <span class="font-paprika nav-q">???</span>
     <span id="cart-link" class="font-comic nav-cart">carrito (<span id="cart-count">0</span>) (dame click si puedes)</span>
     <span class="font-bungee nav-contact">Contacto (no funciona)</span>
     <span class="font-creepster spin-slow nav-spin">🔄</span>
-  </nav>
+  </nav> -->
 
   <!-- Banner molesto -->
-  <div class="annoying-banner horrible-border">
+  <!-- <div class="annoying-banner horrible-border">
     <p class="font-creepster banner-text">⚡ SUPER MEGA ULTRA OFERTA: ¡15% DE DESCUENTO SI COMPRAS DURANTE UN ECLIPSE SOLAR! ⚡</p>
-  </div>
+  </div> -->
 
 
 
@@ -49,7 +80,7 @@
     <div id="cars-list" class="cars-row"></div>
   </section> -->
     <!-- CATALOGO NUEVO -->
-  <section class="cars-section">
+  <section id="catalogo" class="cars-section" >
     <h2 class="font-paprika cars-title">CATÁLOGO</h2>
     <div id="cars-list" class="cars-grid"></div>
   </section>
@@ -58,7 +89,7 @@
   <footer class="footer horrible-border">
     <p class="font-bungee footer-copy">© 2026 Lentos y Calmados™</p>
     <p class="font-comic footer-text">Política de privacidad: No tenemos. Términos y condiciones: Tampoco. Garantía: Jajaja.</p>
-    <p class="font-paprika footer-warn">Si experimentas frustración, ira o confusión al usar este sitio... funciona correctamente ✅</p>
+    <!-- <p class="font-paprika footer-warn">Si experimentas frustración, ira o confusión al usar este sitio... funciona correctamente ✅</p> -->
   </footer>
 
   <div id="detail-modal" class="modal hidden">

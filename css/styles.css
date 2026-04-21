@@ -10,23 +10,25 @@
 
 body {
   margin: 0;
-  min-width: 1400px;
-  overflow-x: scroll;
-  background: hsl(0, 0%, 95%);
-  color: hsl(0, 0%, 20%);
-  font-family: 'Comic Neue', cursive;
+  min-width: 320px;  /*Cambio necesario para ajustar a la pantalla*/
+  overflow-x: hidden;
+  background: #F5F2ED;
+  color:#1C1C1E;
+  font-family: 'DM Sans', sans-serif;  /* reemplaza Comic Neue */
 }
 
 .hidden { display: none !important; }
 
+/*----------CODIGO ANTIGUO---------------*/
+
 /* ----------- Tipografías ----------- */
-.font-comic     { font-family: 'Comic Neue', cursive; }
+/* .font-comic     { font-family: 'Comic Neue', cursive; }
 .font-paprika   { font-family: 'Paprika', cursive; }
 .font-bungee    { font-family: 'Bungee Shade', cursive; }
-.font-creepster { font-family: 'Creepster', cursive; }
+.font-creepster { font-family: 'Creepster', cursive; } */
 
 /* ----------- Animaciones ----------- */
-@keyframes rainbow {
+/* @keyframes rainbow {
   0%   { background-color: hsl(0, 100%, 50%); }
   16%  { background-color: hsl(60, 100%, 50%); }
   33%  { background-color: hsl(120, 100%, 50%); }
@@ -66,20 +68,41 @@ body {
   border: 5px dashed hsl(300, 100%, 50%);
   outline: 3px dotted hsl(120, 100%, 50%);
   outline-offset: 4px;
-}
+} */
 
 /* ----------- Header ----------- */
-.rainbow-header {
+/* .rainbow-header {
   animation: rainbow 2s linear infinite;
   padding: 16px;
   text-align: center;
+} */
+.rainbow-header {
+  background: #0D0D0D;     /* negro absoluto — reemplaza rainbow */
+  padding: 0 32px;
+  height: 60px;
+  border-bottom: 1px solid #2E2E2E;
 }
-.main-title  { font-size: 60px; margin: 0; color: hsl(0, 0%, 20%); }
-.subtitle    { font-size: 20px; margin-top: 8px; color: hsl(0, 0%, 40%); }
-.visit-count { font-size: 12px; color: hsl(0, 0%, 30%); }
+
+.header-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+}
+/* Logo */
+.main-title  {font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px;
+  color: #FFFFFF;  text-decoration: none; }
+.main-title-accent { color: #C9A84C;}
+
+/* CODIGO ANTIGUO*/
+
+/* .subtitle    { font-size: 20px; margin-top: 8px; color: hsl(0, 0%, 40%); }
+.visit-count { font-size: 12px; color: hsl(0, 0%, 30%); } */
 
 /* ----------- Marquee ----------- */
-.marquee-bar {
+/* .marquee-bar {
   background: hsl(0, 0%, 0%);
   color: hsl(60, 100%, 50%);
   overflow: hidden;
@@ -90,10 +113,10 @@ body {
   white-space: nowrap;
   font-size: 22px;
   animation: marquee 8s linear infinite;
-}
+} */
 
 /* ----------- Nav confusa ----------- */
-.confuse-nav {
+/* .confuse-nav {
   display: flex;
   gap: 8px;
   padding: 12px;
@@ -106,19 +129,151 @@ body {
 .nav-q       { font-size: 24px; color: hsl(0, 90%, 50%); }
 .nav-cart    { font-size: 11px; color: hsl(0, 0%, 95%); cursor: pointer; text-decoration: line-through; transition: transform 1s; }
 .nav-contact { font-size: 14px; color: hsl(0, 0%, 95%); }
-.nav-spin    { font-size: 18px; color: hsl(0, 0%, 95%); }
+.nav-spin    { font-size: 18px; color: hsl(0, 0%, 95%); } */
+
+/* Acciones derecha */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon-btn {
+  background: none;
+  border:  none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+}
+.icon-btn:hover {
+  background: #F5F2ED;
+}
+.cart-btn {
+  background: none;
+  border: none;
+  border-radius: 8px;
+  height: 36px;
+  padding: 0 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #c21414;
+  cursor: pointer;
+  transition: background 0.2s;
+  transform: none !important;
+}
+.cart-btn:hover {
+  background: #ebe372;
+}
+
+/* CODIGO ANTIGUO */
 
 /* ----------- Banner ----------- */
-.annoying-banner {
+/* .annoying-banner {
   padding: 12px;
   text-align: center;
   background: hsl(45, 90%, 60%);
 }
-.banner-text { font-size: 24px; color: hsl(0, 0%, 25%); margin: 0; }
+.banner-text { font-size: 24px; color: hsl(0, 0%, 25%); margin: 0; } */
 
+.promo-banner {
+  background: #F5F2ED;
+  border-bottom: 1px solid #EAEAEA;
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.promo-badge {
+  background: #C9A84C;
+  color: #0D0D0D;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.promo-text {
+  font-size: 13px;
+  color: #1C1C1E;
+}
 
+/* ----------- Fondo ----------- */
+.fondo {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+}
 
+.fondo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 
+.fondo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  padding: 24px;
+}
+
+.fondo-label {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C9A84C;
+  margin: 0;
+}
+
+.fondo-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1;
+}
+
+.fondo-sub {
+  font-size: 15px;
+  color: #EAEAEA;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.fondo-btn {
+  margin-top: 16px;
+  background: #C9A84C;
+  color: #0D0D0D;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.fondo-btn:hover {
+  background: #E8C96A;
+}
 
 /* ----------- Sección autos ----------- */
 .cars-section { padding: 24px; background: hsl(0, 0%, 95%); }
@@ -205,10 +360,10 @@ body {
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.btn-add { background: hsl(200, 70%, 50%); }
+.btn-add { background: #C9A84C; }
 .btn-add:hover { background: hsl(200, 70%, 50%); }
 .fake-button:hover { 
-  background: hsl(200, 70%, 40%);
+  background: #8A6914;
   transform: translateY(-2px); 
 }
 
@@ -216,7 +371,7 @@ body {
 .footer {
   padding: 32px;
   text-align: center;
-  background: hsl(200, 70%, 45%);
+  background: #C9A84C;
 }
 .footer-copy { font-size: 16px; color: hsl(0, 0%, 95%); margin: 0; }
 .footer-text { font-size: 13px; color: hsl(0, 0%, 95%); }

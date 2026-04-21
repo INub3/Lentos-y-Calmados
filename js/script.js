@@ -35,10 +35,12 @@ function saveCart() {
   $('cart-count').textContent = cart.length;
 }
 
+// CODIGO ANTIGUO, CONTADOR DE VISITAS
+
 // ---------- Visitas ----------
-const visits = parseInt(localStorage.getItem('lentos-visits') || '0', 10) + 1;
-localStorage.setItem('lentos-visits', visits);
-$('visit-count').textContent = visits;
+// const visits = parseInt(localStorage.getItem('lentos-visits') || '0', 10) + 1;
+// localStorage.setItem('lentos-visits', visits);
+// $('visit-count').textContent = visits;
 $('cart-count').textContent = cart.length;
 
 // Safe to use 
@@ -274,13 +276,15 @@ $('confirm-no').addEventListener('click', () => {
 
 $('reset-btn').addEventListener('click', () => $('complete-modal').classList.add('hidden'));
 
+// CODIGO ANTIGUO, MOVIMIENTO DEL CARRITO
+
 // ---------- Botón carrito que se mueve ----------
-setInterval(() => {
-  const cl = $('cart-link');
-  const x = (Math.random() * 200 - 100) | 0;
-  const y = (Math.random() * 50) | 0;
-  cl.style.transform = `translate(${x}px, ${y}px)`;
-}, 4000);
+// setInterval(() => {
+//   const cl = $('cart-link');
+//   const x = (Math.random() * 200 - 100) | 0;
+//   const y = (Math.random() * 50) | 0;
+//   cl.style.transform = `translate(${x}px, ${y}px)`;
+// }, 4000);
 
 
 // ---------- Init ----------
