@@ -116,14 +116,18 @@ body {
 }
 .banner-text { font-size: 24px; color: hsl(0, 0%, 25%); margin: 0; }
 
+
+
+
+
 /* ----------- Sección autos ----------- */
 .cars-section { padding: 24px; background: hsl(0, 0%, 95%); }
+
 .cars-title {
-  font-size: 28px;
+  font-size: 35px;
   text-align: center;
   margin: 0 0 24px;
-  color: hsl(0, 0%, 25%);
-  letter-spacing: 15px;
+  color: hsl(0, 0%, 9%);
 }
 .cars-row {
   display: flex;
@@ -132,58 +136,89 @@ body {
   padding-bottom: 30px;
 }
 
-/* ----------- Tarjeta auto ----------- */
-.car-card {
-  flex: 0 0 320px;
-  background: hsl(0, 0%, 98%);
-  padding: 16px;
-  border: 5px dashed hsl(200, 60%, 50%);
-  outline: 3px dotted hsl(0, 80%, 50%);
-  outline-offset: 4px;
-  transform: rotate(-2deg);
+.cars-grid {
+  display: grid;
+  /* Crea columnas responsivas que se adaptan al ancho de la pantalla */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding-bottom: 30px;
 }
-.car-card:nth-child(even) { transform: rotate(2deg); background: hsl(0, 0%, 96%); }
+
+.car-card {
+  background: hsl(0, 0%, 100%);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
 .car-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
-  filter: blur(0.5px) saturate(1.4);
-  transform: scaleX(-1);
+  border-radius: 6px;
 }
+
 .car-card h3 {
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Comic Neue', cursive;
   font-size: 22px;
-  margin: 8px 0;
-  color: hsl(200, 80%, 35%);
+  margin: 12px 0 8px;
+  color: hsl(0, 0%, 9%);
 }
+
 .car-card .price {
-  font-family: 'Creepster', cursive;
+  font-family: 'Comic Neue', cursive;
   font-size: 28px;
   color: hsl(120, 70%, 30%);
+  margin: 0 0 8px 0;
 }
+
 .car-card .small {
-  font-family: 'Paprika', cursive;
-  font-size: 11px;
-  color: hsl(0, 0%, 40%);
-}
-.car-card .desc {
   font-family: 'Comic Neue', cursive;
   font-size: 12px;
-  color: hsl(0, 0%, 35%);
+  color: hsl(0, 0%, 40%);
+  margin-bottom: 8px;
 }
+
+.car-card .desc {
+  font-family: 'Comic Neue', cursive;
+  font-size: 14px;
+  color: hsl(0, 0%, 35%);
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
 .fake-button {
   display: inline-block;
-  padding: 8px 14px;
-  margin: 6px 4px 0;
-  border: 3px dotted hsl(200, 70%, 40%);
+  padding: 10px 14px;
+  margin: 4px 4px 0 0;
+  border-radius: 4px;
+  border: none;
   cursor: pointer;
   user-select: none;
-  font-size: 13px;
-  background: hsl(200, 70%, 50%);
+  font-size: 14px;
+  background: hsl(0, 0%, 60%);
+
   color: hsl(0, 0%, 95%);
-  transition: transform 0.4s;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
-.fake-button:hover { transform: rotate(4deg) scale(0.9); }
+
+.btn-add {
+  
+  background: hsl(200, 70%, 50%);
+}
+
+.btn-add:hover {
+  background: hsl(200, 70%, 50%);
+}
+
+/* Hover funcional y agradable */
+.fake-button:hover { 
+  background: hsl(200, 70%, 40%);
+  transform: translateY(-2px); 
+}
 
 /* ----------- Footer ----------- */
 .footer {
@@ -196,25 +231,48 @@ body {
 .footer-warn { font-size: 11px; color: hsl(0, 0%, 95%); }
 
 /* ----------- Modales ----------- */
+/* ----------- Modales (UX Corregido) ----------- */
 .modal {
-  position: fixed; inset: 0;
-  background: rgba(255, 0, 255, 0.5);
-  display: flex; align-items: center; justify-content: center;
+  position: fixed; 
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro elegante en lugar del magenta */
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
   z-index: 50;
   padding: 20px;
 }
+
 .modal-box {
-  background: hsl(60, 100%, 60%);
-  padding: 24px;
-  max-width: 700px;
+  background: hsl(0, 0%, 100%); /* Fondo blanco limpio */
+  padding: 30px;
+  border-radius: 8px; /* Bordes suaves */
+  max-width: 600px;
+  width: 100%;
   max-height: 90vh;
   overflow: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra de profundidad */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaciado ordenado */
 }
+
 .modal-box img {
-  width: 100%; max-height: 250px; object-fit: cover;
-  animation: spin-slow 10s linear infinite;
+  width: 100%; 
+  max-height: 300px; 
+  object-fit: cover;
+  border-radius: 6px;
+  /* ¡Adiós a la animación de giro infinito! */
 }
-.modal-box h2 { margin: 8px 0; font-size: 26px; color: hsl(280, 100%, 35%); }
+
+.modal-box h2 { 
+  margin: 0; 
+  font-size: 28px; 
+  color: hsl(200, 80%, 30%); 
+}
+
+
+
 
 /* Carrito */
 .cart-box { width: 500px; }

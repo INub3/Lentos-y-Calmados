@@ -40,10 +40,18 @@
     <p class="font-creepster banner-text">⚡ SUPER MEGA ULTRA OFERTA: ¡15% DE DESCUENTO SI COMPRAS DURANTE UN ECLIPSE SOLAR! ⚡</p>
   </div>
 
+
+
+  <!-- CATALOGO ANTERIOR -->
   <!-- Listado autos scroll horizontal -->
-  <section class="cars-section">
-    <h2 class="font-paprika cars-title">N U E S T R O S &nbsp; A U T O S &nbsp; (scroll horizontal →→→)</h2>
+  <!-- <section class="cars-section">
+    <h2 class="font-paprika cars-title">CATÁLOGO</h2>
     <div id="cars-list" class="cars-row"></div>
+  </section> -->
+    <!-- CATALOGO NUEVO -->
+  <section class="cars-section">
+    <h2 class="font-paprika cars-title">CATÁLOGO</h2>
+    <div id="cars-list" class="cars-grid"></div>
   </section>
 
   <!-- Footer -->
@@ -54,8 +62,8 @@
   </footer>
 
   <!-- Modal detalle -->
-  <div id="detail-modal" class="modal hidden">
-    <div class="modal-box horrible-border" id="detail-content"></div>
+ <div id="detail-modal" class="modal hidden">
+    <div class="modal-box" id="detail-content"></div>
   </div>
 
   <!-- Modal carrito -->
@@ -93,13 +101,14 @@
   </div>
 
   <!-- Pantalla de compra completa -->
-  <div id="complete-modal" class="modal hidden rainbow-bg">
-    <div class="complete-box horrible-border">
-      <h1 class="font-bungee text-shadow-chaos bounce-crazy complete-title">¡¿COMPRA EXITOSA?!</h1>
-      <p class="font-creepster complete-text">🎉 Tu auto llegará en 6 a 847 días hábiles 🎉</p>
-      <p class="font-comic complete-mail">Recibirás un correo de confirmación... o tal vez no.</p>
-      <p class="font-paprika blink complete-note">NOTA: No aceptamos devoluciones, quejas, miradas feas, ni suspiros de decepción.</p>
-      <span id="reset-btn" class="fake-button reset-btn shake font-bungee">🔄 VOLVER A SUFRIR</span>
+  <div id="complete-modal" class="modal hidden">
+    <div class="complete-box">
+      <h1 class="complete-title">¡Compra Realizada con Éxito!</h1>
+      <p class="complete-text">Tu pedido ha sido procesado correctamente. 🎉</p>
+      <p class="complete-mail">Hemos enviado un correo con el comprobante y los detalles de entrega a tu dirección registrada.</p>
+      <div class="complete-actions">
+        <span id="reset-btn" class="fake-button">Volver al catálogo</span>
+      </div>
     </div>
   </div>
 

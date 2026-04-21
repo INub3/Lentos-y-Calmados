@@ -45,6 +45,7 @@ $('cart-count').textContent = cart.length;
 function renderCars() {
   const container = $('cars-list');
   container.innerHTML = '';
+  
   cars.forEach(car => {
     const div = document.createElement('div');
     div.className = 'car-card';
@@ -54,30 +55,25 @@ function renderCars() {
       <p class="price">$${car.price.toFixed(2)}</p>
       <p class="small">Año: ${car.year} · ${car.km.toLocaleString()} km · ${car.color}</p>
       <p class="desc">${car.description.substring(0, 80)}...</p>
-      <span class="fake-button btn-detail" data-id="${car.id}">ver detalles</span>
-      <span class="fake-button btn-add" data-id="${car.id}">+ carrito</span>
+      <span class="fake-button btn-detail" data-id="${car.id}">Ver detalles</span>
+      <span class="fake-button btn-add" data-id="${car.id}">+ Carrito</span>
     `;
     container.appendChild(div);
   });
 
-  // Botones que se mueven al pasar el mouse (anti-UX)
-  document.querySelectorAll('.btn-add').forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-      const dx = (Math.random() * 100 - 50) | 0;
-      const dy = (Math.random() * 40 - 20) | 0;
-      btn.style.transform = `translate(${dx}px, ${dy}px) rotate(${dx}deg)`;
-    });
-    btn.addEventListener('click', (e) => {
-      const id = parseInt(e.target.dataset.id, 10);
-      // Retraso artificial molesto
-      setTimeout(() => addToCart(id), 800);
-    });
-  });
-
+  // Evento normal para ver detalles
   document.querySelectorAll('.btn-detail').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const id = parseInt(e.target.dataset.id, 10);
       showDetail(id);
+    });
+  });
+
+  // Evento normal para agregar al carrito (sin retrasos ni movimientos)
+  document.querySelectorAll('.btn-add').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = parseInt(e.target.dataset.id, 10);
+      addToCart(id);
     });
   });
 }
@@ -121,20 +117,30 @@ function renderCart() {
 function showDetail(id) {
   const car = cars.find(c => c.id === id);
   if (!car) return;
+  
   $('detail-content').innerHTML = `
-    <h2 class="font-bungee">${car.name}</h2>
+    <h2>${car.name}</h2>
     <img src="${car.image}" alt="${car.name}" />
-    <p class="font-creepster" style="font-size:24px;color:hsl(120,100%,25%)">$${car.price.toFixed(2)}</p>
-    <p class="font-paprika">Año: ${car.year} | KM: ${car.km.toLocaleString()} | Color: ${car.color}</p>
-    <p class="font-comic" style="color:hsl(240,80%,25%)">${car.description}</p>
-    <span class="fake-button" id="detail-add" style="background:hsl(120,100%,40%);color:white">agregar al carrito</span>
-    <span class="fake-button" id="detail-close">cerrar (puede que sí)</span>
+    <p class="price" style="font-size:28px; font-weight:bold; color:hsl(120,70%,30%); margin:0;">$${car.price.toFixed(2)}</p>
+    <p style="color:hsl(0,0%,40%); margin:0;">Año: ${car.year} | KM: ${car.km.toLocaleString()} | Color: ${car.color}</p>
+    <p style="color:hsl(0,0%,30%); line-height:1.5;">${car.description}</p>
+    <div style="display:flex; gap:10px; margin-top:15px;">
+      <button class="fake-button" id="detail-add" style="flex:1;">Agregar al carrito</button>
+      <button class="fake-button" id="detail-close" style="flex:1; background:hsl(0, 0%, 60%);">Cerrar</button>
+    </div>
   `;
+  
   $('detail-modal').classList.remove('hidden');
+  
+  // Evento corregido: sin retrasos de tiempo (setTimeout)
   $('detail-add').addEventListener('click', () => {
-    setTimeout(() => { addToCart(id); $('detail-modal').classList.add('hidden'); }, 600);
+    addToCart(id); 
+    $('detail-modal').classList.add('hidden'); 
   });
-  $('detail-close').addEventListener('click', () => $('detail-modal').classList.add('hidden'));
+  
+  $('detail-close').addEventListener('click', () => {
+    $('detail-modal').classList.add('hidden');
+  });
 }
 
 // ---------- Eventos navegación ----------
