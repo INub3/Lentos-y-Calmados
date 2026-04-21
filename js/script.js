@@ -1,5 +1,5 @@
 /* ============================================
-   LENTOS Y CALMADOS - Lógica anti-UX
+   LENTOS Y CALMADOS - Lógica (HCI Mejorado)
    ============================================ */
 
 // ---------- Datos ----------
@@ -40,6 +40,22 @@ const visits = parseInt(localStorage.getItem('lentos-visits') || '0', 10) + 1;
 localStorage.setItem('lentos-visits', visits);
 $('visit-count').textContent = visits;
 $('cart-count').textContent = cart.length;
+
+// Safe to use 
+// [NUEVO] 
+document.querySelectorAll('#checkout-form input, #checkout-form textarea').forEach(input => {
+  input.addEventListener('input', (e) => {
+    localStorage.setItem(`draft_${input.className}`, e.target.value);
+  });
+});
+
+// [NUEVO] 
+function loadFormDraft() {
+  document.querySelectorAll('#checkout-form input, #checkout-form textarea').forEach(input => {
+    const saved = localStorage.getItem(`draft_${input.className}`);
+    if (saved) input.value = saved;
+  });
+}
 
 // ---------- Render autos ----------
 function renderCars() {
@@ -87,11 +103,45 @@ function addToCart(id) {
   alert('¿Tal vez se agregó? Quién sabe. Revisa el carrito.');
 }
 
+/* ANTERIOR
 function removeFromCart(idx) {
   cart.splice(idx, 1);
   saveCart();
   renderCart();
 }
+*/
+
+// NUEVO
+let lastRemovedItem = null;
+let undoTimeout = null;
+
+function removeFromCart(idx) {
+  lastRemovedItem = { item: cart[idx], index: idx }; // Guardamos el respaldo
+  cart.splice(idx, 1);
+  saveCart();
+  renderCart();
+  
+  // Mostrar notificación de Deshacer
+  const toast = $('undo-toast');
+  toast.classList.remove('hidden');
+  
+  clearTimeout(undoTimeout);
+  undoTimeout = setTimeout(() => {
+    toast.classList.add('hidden');
+    lastRemovedItem = null;
+  }, 5000);
+}
+
+// NUEVO
+$('undo-btn').addEventListener('click', () => {
+  if (lastRemovedItem) {
+    cart.splice(lastRemovedItem.index, 0, lastRemovedItem.item);
+    lastRemovedItem = null;
+    saveCart();
+    renderCart();
+    $('undo-toast').classList.add('hidden');
+  }
+});
 
 function renderCart() {
   const list = $('cart-items');
@@ -152,25 +202,74 @@ $('cart-close').addEventListener('click', () => $('cart-modal').classList.add('h
 
 $('cart-checkout').addEventListener('click', () => {
   if (cart.length === 0) { alert('No hay nada... pero igual gracias.'); return; }
+  loadFormDraft(); // [NUEVO] Recupera datos al abrir
   $('cart-modal').classList.add('hidden');
   $('checkout-modal').classList.remove('hidden');
 });
 $('checkout-close').addEventListener('click', () => $('checkout-modal').classList.add('hidden'));
 
-$('submit-btn').addEventListener('click', () => {
+
+/* ANTERIOR
+$('submit-btn').addEventListener('click', () => {  
   // Validación absurda (no valida nada bien)
   const inputs = document.querySelectorAll('#checkout-form input, #checkout-form textarea');
   let empty = false;
   inputs.forEach(i => { if (i.hasAttribute('required') && !i.value) empty = true; });
   if (empty) { alert('Algo falta. Adivina qué.'); return; }
-  // Espera artificial
-  alert('Procesando... espera 3 segundos por ningún motivo.');
+  
+  const total = cart.reduce((s, c) => s + c.price, 0);
+  const confirmacion = confirm(`¿Estás seguro de pagar $${total.toFixed(2)}?`);
+  
+  if (confirmacion) {
+    alert('Procesando... espera 3 segundos.');
+    setTimeout(() => {
+      cart = [];
+      saveCart();
+      $('checkout-modal').classList.add('hidden');
+      $('complete-modal').classList.remove('hidden');
+    }, 3000);
+  }
+});
+*/
+
+// NUEVO
+$('submit-btn').addEventListener('click', () => {
+  const inputs = document.querySelectorAll('#checkout-form input, #checkout-form textarea');
+  let hasError = false;
+
+  inputs.forEach(i => {
+    if (i.hasAttribute('required') && !i.value) {
+      i.classList.add('input-error'); // Feedback visual
+      hasError = true;
+    } else {
+      i.classList.remove('input-error');
+    }
+  });
+
+  if (hasError) return;
+
+  // Abrir Modal custom en lugar del alert nativo
+  $('confirm-modal').classList.remove('hidden');
+});
+
+// [NUEVO] Manejo del Modal de Confirmación
+$('confirm-yes').addEventListener('click', () => {
+  $('confirm-modal').classList.add('hidden');
+  $('checkout-modal').classList.add('hidden');
+  
   setTimeout(() => {
+    // Limpiar borradores guardados al completar la compra
+    const inputs = document.querySelectorAll('#checkout-form input, #checkout-form textarea');
+    inputs.forEach(input => localStorage.removeItem(`draft_${input.className}`));
+    
     cart = [];
     saveCart();
-    $('checkout-modal').classList.add('hidden');
     $('complete-modal').classList.remove('hidden');
-  }, 3000);
+  }, 1500); // 1.5 segundos simulados de procesamiento
+});
+
+$('confirm-no').addEventListener('click', () => {
+  $('confirm-modal').classList.add('hidden');
 });
 
 $('reset-btn').addEventListener('click', () => $('complete-modal').classList.add('hidden'));
